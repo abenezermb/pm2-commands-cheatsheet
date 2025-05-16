@@ -1,25 +1,49 @@
-1. Get logs
-```pm2 logs my-app```
-```pm2 logs my-app --lines 100```    # show the last 100 lines
-```pm2 logs my-app --error```        # only stderr
-```pm2 logs my-app --out```          # only stdout
+Here’s a clean, well-formatted reference for your PM2 commands:
 
-```tail -f ~/.pm2/logs/my-app-out.log```
-```tail -f ~/.pm2/logs/my-app-error.log```
+---
 
-```pm2 logs my-app --raw | jq .```
+## 1. Viewing Logs for a Specific Process
 
-2. Start app directly
-```pm2 start app.js --name my-app```
+```bash
+# Tail both stdout + stderr
+pm2 logs my-app
 
-3. Reload an app
-```pm2 reload my-app```
+# Tail last 100 lines
+pm2 logs my-app --lines 100
 
-4. Stop an app
-```pm2 stop my-app```
+# Tail stderr only
+pm2 logs my-app --error
 
-5. Restart an app
-```pm2 restart my-app```
+# Tail stdout only
+pm2 logs my-app --out
 
-6. Delete an app
-```pm2 delete my-app```
+# Follow stdout log file directly
+tail -f ~/.pm2/logs/my-app-out.log
+
+# Follow stderr log file directly
+tail -f ~/.pm2/logs/my-app-error.log
+
+# Stream raw logs and pretty-print JSON entries
+pm2 logs my-app --raw | jq .
+```
+
+---
+
+## 2. Managing Your App
+
+```bash
+# Start the app
+pm2 start app.js --name my-app
+
+# Reload (zero-downtime)
+pm2 reload my-app
+
+# Stop the app
+pm2 stop my-app
+
+# Restart the app
+pm2 restart my-app
+
+# Delete the app from PM2 process list
+pm2 delete my-app
+```
