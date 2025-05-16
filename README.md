@@ -1,7 +1,3 @@
-Here’s a clean, well-formatted reference for your PM2 commands:
-
----
-
 ## 1. Viewing Logs for a Specific Process
 
 ```bash
@@ -27,7 +23,6 @@ tail -f ~/.pm2/logs/my-app-error.log
 pm2 logs my-app --raw | jq .
 ```
 
----
 
 ## 2. Managing Your App
 
